@@ -129,6 +129,11 @@
   }
   @keyframes glow-pulse { 0%,100%{transform:translate(-50%,-50%) scale(1)} 50%{transform:translate(-50%,-50%) scale(1.3)} }
 
+  @keyframes hero-title-pulse {
+    0%, 100% { opacity: 1; text-shadow: 0 0 0px rgba(245, 104, 10, 0); }
+    50% { opacity: 0.8; text-shadow: 0 0 24px rgba(245, 104, 10, 0.6), 0 0 50px rgba(245, 104, 10, 0.2); }
+  }
+
   .hero-title-red {
     display: block; 
     font-size: clamp(18px, 5.2vw, 26px); 
@@ -141,6 +146,7 @@
     margin-bottom: 4px; 
     position: relative; 
     z-index: 1;
+    animation: none;
   }
 
   .title-red-word { color: var(--white); }
@@ -508,7 +514,20 @@
     border-bottom: 1px solid rgba(245, 245, 245, 0.2);
   }
 
-  /* Loading spinner no botão */
+  @keyframes title-pulse {
+    0%, 100% { opacity: 1; text-shadow: 0 0 0px rgba(245, 104, 10, 0); letter-spacing: 0.06em; }
+    50% { opacity: 0.75; text-shadow: 0 0 20px rgba(245, 104, 10, 0.7), 0 0 40px rgba(245, 104, 10, 0.3); letter-spacing: 0.09em; }
+  }
+
+  .form-title {
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0;
+    animation: none;
+  }
   .btn-spinner {
     display: none;
     width: 16px;
@@ -598,7 +617,7 @@
     <!-- Formulário -->
     <div class="form-container">
 
-      <p style="font-size: 13px; font-weight: 800; color: var(--white); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0px;">GARANTA SEU ACESSO</p>
+      <p class="form-title">GARANTA SEU ACESSO</p>
       <p style="font-size: 10px; font-weight: 600; color: #888; text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 14px;">Preencha os seus dados nos campos a seguir.</p>
 
       <label class="form-label" for="input-nome">Seu nome</label>
@@ -712,13 +731,12 @@
     // Pixel Lead
     fbq('track', 'Lead');
 
-    // Envia para o Datacrazy (não bloqueia o redirect se falhar)
+    // Envia para o Datacrazy
     try {
       await fetch(WEBHOOK, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ nome, whatsapp, area_atuacao: area }),
-        mode: 'no-cors'
+        body: JSON.stringify({ nome, whatsapp, area_atuacao: area })
       });
     } catch(e) {
       console.warn('Webhook error:', e);
