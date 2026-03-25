@@ -136,7 +136,7 @@
 
   .hero-title-red {
     display: block; 
-    font-size: clamp(18px, 5.2vw, 26px); 
+    font-size: clamp(15px, 4.5vw, 22px); 
     font-family: 'Bebas Neue', sans-serif;
     font-weight: 400;
     color: var(--orange); 
@@ -547,7 +547,10 @@
 
     <div class="title-wrap">
       <div class="title-bg"><div class="title-bg-glow"></div></div>
-      <span class="hero-title-red">Até quando você vai tolerar um <span class="title-red-word">comercial</span><br>que <span class="title-red-word">não entrega</span> o que deveria?</span>
+      <span class="hero-title-red">
+        <span style="font-size: clamp(17px, 5vw, 24px); color: #F5680A; display: block;">DE R$30 MIL PARA +R$150 MIL NA SUA EMPRESA</span>
+        <span style="color: #F5F5F5; display: block;">ESSE É O PODER DE TER UM COMERCIAL BEM AJUSTADO!</span>
+      </span>
     </div>
 
     <div class="elements-container">
@@ -560,7 +563,7 @@
 
       <div class="gear-content">
         <p class="hero-description" style="margin-top: 12px; margin-bottom: 12px;">
-          DOMINE AS 3 ENGRENAGENS MAIS IMPORTANTES<br>DO COMERCIAL, QUE LEVARAM EMPRESAS<br><span style="text-decoration: underline;">DE 20 MIL PARA 150 MIL/MÊS.</span>
+          DOMINE AS 3 ENGRENAGENS DO MOTOR COMERCIAL<br><span style="text-decoration: underline;">E ESCALE COM PREVISIBILIDADE.</span>
         </p>
 
         <div class="gear-track" id="gear-track">
@@ -621,15 +624,15 @@
       <p style="font-size: 10px; font-weight: 600; color: #888; text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 14px;">Preencha os seus dados nos campos a seguir.</p>
 
       <label class="form-label" for="input-nome">Seu nome</label>
-      <input class="form-input" id="input-nome" type="text" placeholder="Ex: Gustavo Benedetti" autocomplete="name" />
+      <input class="form-input" id="input-nome" type="text" placeholder="Ex: João Silva" autocomplete="name" required />
       <div class="form-error-msg" id="err-nome">Preencha seu nome.</div>
 
       <label class="form-label" for="input-whatsapp">WhatsApp</label>
-      <input class="form-input" id="input-whatsapp" type="tel" placeholder="(00) 00000-0000" autocomplete="tel" inputmode="numeric" />
+      <input class="form-input" id="input-whatsapp" type="tel" placeholder="(00) 00000-0000" autocomplete="tel" inputmode="numeric" required />
       <div class="form-error-msg" id="err-whatsapp">Preencha seu WhatsApp.</div>
 
       <label class="form-label" for="input-area">Área de atuação</label>
-      <input class="form-input" id="input-area" type="text" placeholder="Ex: Consultoria, Varejo, SaaS..." style="margin-bottom: 0;" />
+      <input class="form-input" id="input-area" type="text" placeholder="Ex: Consultoria, Varejo, SaaS..." style="margin-bottom: 0;" required />
       <div class="form-error-msg" id="err-area">Preencha sua área de atuação.</div>
 
     </div>
