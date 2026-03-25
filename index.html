@@ -735,8 +735,9 @@
     try {
       await fetch(WEBHOOK, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ nome, whatsapp, area_atuacao: area })
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({ nome, whatsapp, area_atuacao: area }),
+        mode: 'no-cors'
       });
     } catch(e) {
       console.warn('Webhook error:', e);
